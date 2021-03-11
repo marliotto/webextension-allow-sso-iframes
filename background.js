@@ -34,7 +34,7 @@ function changeResponseHeaders(details){
   if(details.responseHeaders.length > 0){
     for (var i = details.responseHeaders.length - 1; i >= 0; --i) {
       var header = details.responseHeaders[i];
-      console.log("Header", i, header.name);
+      // console.log("Header", i, header.name);
       if (['x-frame-options', 'content-security-policy', 'x-xss-protection'].includes(header.name.toLowerCase())) {
         // Remove x-frame-options and content-security-policy
         details.responseHeaders.splice(i, 1);
