@@ -35,7 +35,7 @@ function changeResponseHeaders(details){
     for (var i = details.responseHeaders.length - 1; i >= 0; --i) {
       var header = details.responseHeaders[i];
       console.log("Header", i, header.name);
-      if (header.name.toLowerCase() === 'x-frame-options' || header.name.toLowerCase() === 'content-security-policy') {
+      if (['x-frame-options', 'content-security-policy', 'x-xss-protection'].includes(header.name.toLowerCase())) {
         // Remove x-frame-options and content-security-policy
         details.responseHeaders.splice(i, 1);
       } else if (header.name.toLowerCase() === 'set-cookie') {
